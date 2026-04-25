@@ -27,6 +27,10 @@ li{
     border-radius: 5px;
 }
 
+li h4{
+    background-color: white;
+}
+
 a{
     background-color: white;
     color: black;
@@ -66,7 +70,7 @@ p{
 }
 
 .bloco{
-    background-color: f2f2f2;
+    background-color: white;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -108,7 +112,7 @@ p{
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: f2f2f2;
+    background-color: white;
     border-radius: 8px;
     overflow: hidden;
 }
