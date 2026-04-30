@@ -1,0 +1,575 @@
+/* =====================================================
+   STYLE.CSS — Estilos do site "Para o nosso Professor"
+   =====================================================
+   
+   Organização:
+   1. Variáveis e Reset
+   2. Tipografia global
+   3. Hero (Cabeçalho)
+   4. Mural (Grid de Cards)
+   5. Card individual
+   6. Modal (carta aberta)
+   7. Rodapé
+   8. Responsividade (Mobile)
+===================================================== */
+
+
+/* ─────────────────────────────────────────────
+   1. VARIÁVEIS E RESET
+   
+   Variáveis CSS (--nome) são como "apelidos" para valores.
+   Se quiserem mudar a cor principal do site, basta mudar
+   aqui em um lugar só, e todo o site atualiza!
+───────────────────────────────────────────────*/
+:root {
+    /* Paleta de cores — tons cálidos e acolhedores */
+    --cor-fundo:        #fdf8f2;   /* bege muito claro, como papel velho */
+    --cor-fundo-alt:    #fff9f0;   /* variação levemente mais clara */
+    --cor-primaria:     #5c7a6e;   /* verde-cinza tranquilo */
+    --cor-primaria-esc: #3d5c52;   /* versão mais escura do verde */
+    --cor-destaque:     #c17f5a;   /* terracota suave para detalhes */
+    --cor-cartao-aluno-bg:      #fffdf9;   /* branco levemente creme para os cartao-alunos */
+    --cor-texto:        #3a3530;   /* quase-preto, mais suave que #000 */
+    --cor-texto-leve:   #7a6e65;   /* cinza-acastanhado para textos secundários */
+    --cor-borda:        #e8ddd4;   /* bege para bordas discretas */
+
+    /* Tipografia */
+    --fonte-titulo: 'Playfair Display', Georgia, serif;   /* para h1, h2 etc. */
+    --fonte-corpo:  'Lato', 'Helvetica Neue', sans-serif; /* para parágrafos */
+
+    /* Espaçamentos e formas */
+    --raio-borda: 12px;  /* arredondamento dos cartao-alunos */
+    --sombra-cartao-aluno: 0 4px 20px rgba(90, 70, 50, 0.08); /* sombra suave */
+    --sombra-hover: 0 8px 30px rgba(90, 70, 50, 0.16); /* sombra ao passar o mouse */
+}
+
+/* Reset básico: remove margens e paddings padrões do navegador */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* faz largura/altura incluir padding e borda */
+}
+
+/* Rolagem suave ao clicar na seta "↓" do cabecalho-principal */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ─────────────────────────────────────────────
+   2. TIPOGRAFIA GLOBAL
+───────────────────────────────────────────────*/
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    /* line-height: 1.6 melhora muito a legibilidade do texto */
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    line-height: 1.2;
+}
+
+
+/* ─────────────────────────────────────────────
+   3. HERO (CABEÇALHO)
+   
+   A seção de boas-vindas ocupa a tela inteira.
+   Usamos min-height: 100vh para isso (vh = viewport height).
+───────────────────────────────────────────────*/
+.cabecalho-principal {
+    position: relative;    /* necessário para posicionar o .envelopes-decorativos */
+    min-height: 100vh;     /* 100% da altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+
+    /* Gradiente diagonal como fundo — mistura entre dois tons cálidos */
+    background: linear-gradient(
+        145deg,
+        #e8f0ec 0%,      /* verde muito pálido */
+        var(--cor-fundo) 50%,
+        #f5ede4 100%     /* salmão muito pálido */
+    );
+
+    overflow: hidden; /* impede que os envelopes decorativos ultrapassem a seção */
+}
+
+/* Envelopes decorativos de fundo — puro CSS, só visual */
+.envelopes-decorativos {
+    position: absolute; /* "flutua" sobre o fundo */
+    inset: 0;           /* ocupa toda a área do .cabecalho-principal */
+    pointer-events: none; /* cliques passam através dele, não interferem */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 180px;
+    opacity: 0.04;       /* quase invisível, só uma textura */
+    user-select: none;
+}
+
+/* Conteúdo central */
+.conteudo-cabecalho {
+    max-width: 680px; /* limita a largura para melhor leitura */
+    /* Animação de entrada — aparece suavemente ao carregar a página */
+    animation: surgir 1s ease-out forwards;
+}
+
+@keyframes surgir {
+    from {
+        opacity: 0;
+        transform: translateY(24px); /* começa um pouco abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.texto-pequeno-topo {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em; /* espaçamento entre letras — efeito elegante */
+    text-transform: uppercase;
+    color: var(--cor-primaria);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.titulo-principal {
+    font-size: clamp(2.2rem, 6vw, 3.8rem); /* tamanho responsivo automático! */
+    color: var(--cor-texto);
+    margin-bottom: 24px;
+}
+
+/* A tag <em> dentro do título fica em itálico com cor de destaque */
+.titulo-principal em {
+    color: var(--cor-destaque);
+    font-style: italic;
+}
+
+.texto-explicativo {
+    font-size: 1.05rem;
+    color: var(--cor-texto-leve);
+    max-width: 540px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+}
+
+/* Seta que convida a rolar a página */
+.seta-rolagem {
+    display: inline-block;
+    color: var(--cor-primaria);
+    font-size: 1.6rem;
+    text-decoration: none;
+    border: 2px solid var(--cor-primaria);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* torna o elemento circular */
+    line-height: 46px;
+    transition: all 0.3s ease; /* animação suave no hover */
+
+    /* Animação de vai-e-vem para chamar atenção */
+    animation: pular 2s ease-in-out infinite;
+}
+
+.seta-rolagem:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+@keyframes pular {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+}
+
+
+/* ─────────────────────────────────────────────
+   3.5. MENSAGEM DE APOIO
+   
+   Uma seção em destaque após o cabeçalho.
+───────────────────────────────────────────────*/
+.sessao-mensagem-apoio {
+    background-color: var(--cor-cartao-aluno-bg);
+    padding: 60px 20px;
+    border-top: 1px solid var(--cor-borda);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.texto-sessao-mensagem-apoio {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-sessao-mensagem-apoio h2 {
+    color: var(--cor-primaria-esc);
+    margin-bottom: 24px;
+    font-size: 2rem;
+}
+
+.texto-sessao-mensagem-apoio p {
+    color: var(--cor-texto-leve);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+/* ─────────────────────────────────────────────
+   4. MURAL — SEÇÃO DE CARDS
+───────────────────────────────────────────────*/
+.secao-das-cartas {
+    padding: 80px 20px 100px;
+    max-width: 1200px;  /* largura máxima para telas grandes */
+    margin: 0 auto;     /* centraliza o bloco horizontalmente */
+}
+
+.topo-das-cartas {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.titulo-das-cartas {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--cor-texto);
+    margin-bottom: 8px;
+}
+
+/* Detalhe decorativo abaixo do título do secao-das-cartas */
+.titulo-das-cartas::after {
+    content: '';      /* cria um pseudo-elemento sem texto */
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--cor-destaque);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.subtitulo-das-cartas {
+    color: var(--cor-texto-leve);
+    font-size: 0.95rem;
+}
+
+/* 
+   NAVEGAÇÃO / FILTROS DE SALA
+*/
+.menu-de-salas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.botao-sala {
+    background-color: transparent;
+    border: 1px solid var(--cor-primaria);
+    color: var(--cor-primaria);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--fonte-corpo);
+}
+
+.botao-sala:hover,
+.botao-sala.ativo {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+/* 
+   CSS GRID — o coração do nosso layout de cartao-alunos!
+   repeat(auto-fill, minmax(280px, 1fr)) significa:
+   - Crie quantas colunas couberem na tela
+   - Cada coluna tem mínimo de 280px e máximo de 1fr (espaço igual)
+   Resultado: o grid se adapta automaticamente a qualquer tela!
+*/
+.grade-de-cartas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px; /* espaçamento entre os cartao-alunos */
+}
+
+
+/* ─────────────────────────────────────────────
+   5. CARD INDIVIDUAL
+   
+   Cada cartao-aluno é um "bilhete" com o nome e o início da carta.
+   Clicar nele abre o modal com a mensagem completa.
+───────────────────────────────────────────────*/
+.cartao-aluno {
+    background-color: var(--cor-cartao-aluno-bg);
+    border-radius: var(--raio-borda);
+    border: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra-cartao-aluno);
+    padding: 32px 28px;
+    cursor: pointer; /* o cursor vira "mãozinha" — sinaliza que é clicável */
+    position: relative;
+    overflow: hidden;
+
+    /* transition: faz a animação do hover ser suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Animação de entrada dos cartao-alunos — aparecem em sequência */
+    animation: entrarCard 0.5s ease-out backwards;
+}
+
+/* Faixa colorida no topo de cada cartao-aluno (elemento decorativo) */
+.cartao-aluno::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cor-primaria), var(--cor-destaque));
+}
+
+/* 
+   EFEITO HOVER — ao passar o mouse sobre o cartao-aluno:
+   - Ele sobe um pouquinho (translateY negativo = subir)
+   - A sombra fica mais pronunciada, dando sensação de elevação
+*/
+.cartao-aluno:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+}
+
+.icone-do-cartao {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.nome-no-cartao {
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    color: var(--cor-primaria-esc);
+    margin-bottom: 10px;
+}
+
+/* Trecho da carta — limitado a 3 linhas com "..." no final */
+.resumo-do-cartao {
+    font-size: 0.9rem;
+    color: var(--cor-texto-leve);
+    font-weight: 300;
+
+    /* Essas 3 linhas juntas criam o efeito de "..." em 3 linhas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.7;
+}
+
+.link-ver-mais {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cor-destaque);
+}
+
+@keyframes entrarCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ─────────────────────────────────────────────
+   6. MODAL — CARTA ABERTA
+   
+   O modal é uma "janela" que aparece sobre o conteúdo
+   quando o professor clica em um cartao-aluno.
+───────────────────────────────────────────────*/
+
+/* Fundo escurecido atrás do modal */
+.fundo-escuro-janela {
+    position: fixed;    /* fica fixo mesmo ao rolar a página */
+    inset: 0;           /* ocupa a tela toda: top/right/bottom/left = 0 */
+    background-color: rgba(58, 53, 48, 0.6); /* preto transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 100;       /* fica na frente de tudo */
+    animation: fadeIn 0.25s ease;
+    /* O backdrop-filter desfoca o fundo — efeito moderno */
+    backdrop-filter: blur(4px);
+}
+
+/* A janela em si */
+.janela-da-carta {
+    background: var(--cor-cartao-aluno-bg);
+    border-radius: var(--raio-borda);
+    padding: 48px 40px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 85vh;   /* altura máxima de 85% da tela */
+    overflow-y: auto;   /* adiciona scroll se o texto for muito longo */
+    position: relative;
+    animation: surgirModal 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.janela-da-carta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--cor-primaria), var(--cor-destaque));
+    border-radius: var(--raio-borda) var(--raio-borda) 0 0;
+}
+
+.botao-fechar-janela {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--cor-texto-leve);
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.botao-fechar-janela:hover {
+    color: var(--cor-texto);
+    background: var(--cor-borda);
+}
+
+.icone-da-janela {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.nome-na-janela {
+    font-family: var(--fonte-titulo);
+    font-size: 1.8rem;
+    color: var(--cor-primaria-esc);
+    margin-bottom: 8px;
+}
+
+.subtitulo-na-janela {
+    font-size: 0.8rem;
+    color: var(--cor-destaque);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+.linha-divisoria {
+    border: none;
+    border-top: 1px solid var(--cor-borda);
+    margin-bottom: 28px;
+}
+
+.texto-completo-janela {
+    font-size: 1rem;
+    color: var(--cor-texto);
+    line-height: 1.85;    /* bastante espaçado para facilitar a leitura */
+    white-space: pre-line; /* respeita quebras de linha (\n) do texto */
+    margin-bottom: 24px;
+}
+
+.etiqueta-de-sala {
+    display: inline-block;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-leve);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes surgirModal {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Classe auxiliar usada pelo JS para esconder o modal */
+.oculto {
+    display: none;
+}
+
+
+/* ─────────────────────────────────────────────
+   7. RODAPÉ
+───────────────────────────────────────────────*/
+.rodape-pagina {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--cor-primaria-esc);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.coracao {
+    color: #e07070; /* vermelho rosado para o coração ♥ */
+}
+
+.ano-rodape-pagina {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+
+/* ─────────────────────────────────────────────
+   8. RESPONSIVIDADE (MOBILE)
+   
+   @media queries permitem aplicar estilos
+   somente em determinados tamanhos de tela.
+   "max-width: 600px" = "em telas menores que 600px"
+───────────────────────────────────────────────*/
+@media (max-width: 600px) {
+
+    /* Em celular, o cabecalho-principal fica um pouco menor */
+    .cabecalho-principal {
+        min-height: 90vh;
+    }
+
+    /* O grid vira uma coluna só em celular */
+    .grade-de-cartas {
+        grid-template-columns: 1fr;
+    }
+
+    /* O modal ocupa mais espaço em telas pequenas */
+    .janela-da-carta {
+        padding: 36px 24px;
+    }
+}

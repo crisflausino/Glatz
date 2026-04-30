@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Garante que o site funcione bem em celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Nosso Professor - Início</title>
+
+    <!-- Importando fontes do Google Fonts: Playfair Display para títulos e Lato para o texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Nosso arquivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-sala="destaques"> <!-- A tag body avisa ao script que esta é a página de destaques -->
+
+    <!-- ===================== -->
+    <!--   CABEÇALHO (HERO)    -->
+    <!-- ===================== -->
+    <!-- A <header> é a seção de boas-vindas -->
+    <header class="cabecalho-principal">
+
+        <!-- Elemento decorativo de fundo -->
+        <div class="envelopes-decorativos" aria-hidden="true">
+            <span>✉</span>
+            <span>✉</span>
+            <span>✉</span>
+        </div>
+
+        <!-- Conteúdo central do cabeçalho -->
+        <div class="conteudo-cabecalho">
+            <p class="texto-pequeno-topo">Uma mensagem das turmas</p>
+            <h1 class="titulo-principal">Para o nosso querido<br><em>Professor</em></h1>
+            <p class="texto-explicativo">
+                Neste momento difícil, queremos que você saiba que não está sozinho. 
+                Cada aluno torce por você, admira você e é grato por tudo.
+            </p>
+            <a href="#secao-das-cartas" class="seta-rolagem" aria-label="Ver as cartas">↓</a>
+        </div>
+
+    </header>
+
+    <!-- ===================== -->
+    <!--  MENSAGEM DE APOIO    -->
+    <!-- ===================== -->
+    <!-- Nova seção em HTML puro para adicionar mais conteúdo legível sem JS -->
+    <section class="sessao-mensagem-apoio">
+        <div class="texto-sessao-mensagem-apoio">
+            <h2>Nossa Força Está com Você</h2>
+            <p>Professor, nós sabemos o quanto o senhor se dedica a nós em cada aula. Suas explicações, sua paciência e o brilho nos seus olhos quando ensina programação nos inspiram todos os dias.</p>
+            <p>Decidimos criar este espaço usando o que aprendemos com o senhor (HTML, CSS e JavaScript puro) para mostrar que a sua dedicação deu frutos. Gostaríamos que usasse este site como um pequeno refúgio. Sempre que precisar de força, venha ler o que seus alunos têm a dizer.</p>
+        </div>
+    </section>
+
+    <!-- ===================== -->
+    <!--   MURAL DE CARTAS     -->
+    <!-- ===================== -->
+    <main id="secao-das-cartas" class="secao-das-cartas">
+
+        <div class="topo-das-cartas">
+            <h2 class="titulo-das-cartas">Mural de Cartas (Destaques)</h2>
+            <p class="subtitulo-das-cartas">Aqui estão algumas cartas. Navegue pelas salas abaixo para ler todas as mensagens.</p>
+        </div>
+
+        <!-- ===================== -->
+        <!--  NAVEGAÇÃO POR SALAS  -->
+        <!-- ===================== -->
+        <!-- Usamos a tag semântica <nav> e criamos links reais para as páginas de cada subcategoria -->
+        <nav class="menu-de-salas" aria-label="Navegação de salas">
+            <a href="index.html" class="botao-sala ativo">Início</a>
+            <a href="salas/sala-3b.html" class="botao-sala">3º B</a>
+            <a href="salas/sala-3c.html" class="botao-sala">3º C</a>
+            <a href="salas/sala-2a.html" class="botao-sala">2º A</a>
+            <a href="salas/sala-2b.html" class="botao-sala">2º B</a>
+            <a href="salas/sala-1a.html" class="botao-sala">1º A</a>
+        </nav>
+
+        <!-- Container onde o JavaScript vai colocar os cartao-alunos -->
+        <div id="container-cartas" class="grade-de-cartas"></div>
+
+    </main>
+
+    <!-- ===================== -->
+    <!--       RODAPÉ          -->
+    <!-- ===================== -->
+    <footer class="rodape-pagina">
+        <p>Feito com <span class="coracao">♥</span> pelos alunos de ADS</p>
+        <p class="ano-rodape-pagina">2025</p>
+    </footer>
+
+    <!-- ===================== -->
+    <!--   MODAL (CARTA ABERTA) -->
+    <!-- ===================== -->
+    <div id="fundo-escuro-janela" class="fundo-escuro-janela oculto">
+        <div class="janela-da-carta">
+            <button id="btn-fechar-modal" class="botao-fechar-janela" aria-label="Fechar carta">✕</button>
+            <span class="icone-da-janela">✉️</span>
+            <h2 id="modal-nome" class="nome-na-janela"></h2>
+            <p class="subtitulo-na-janela">Carta para o Professor</p>
+            <hr class="linha-divisoria">
+            <p id="modal-texto" class="texto-completo-janela"></p>
+            <p id="modal-sala" class="etiqueta-de-sala"></p>
+        </div>
+    </div>
+
+    <!-- Scripts da aplicação -->
+    <script src="dados.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
