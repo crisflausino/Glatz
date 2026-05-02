@@ -23,31 +23,48 @@
 ───────────────────────────────────────────────*/
 :root {
     /* Paleta de cores — tons cálidos e acolhedores */
-    --cor-fundo:        #fdf8f2;   /* bege muito claro, como papel velho */
-    --cor-fundo-alt:    #fff9f0;   /* variação levemente mais clara */
-    --cor-primaria:     #5c7a6e;   /* verde-cinza tranquilo */
-    --cor-primaria-esc: #3d5c52;   /* versão mais escura do verde */
-    --cor-destaque:     #c17f5a;   /* terracota suave para detalhes */
-    --cor-cartao-aluno-bg:      #fffdf9;   /* branco levemente creme para os cartao-alunos */
-    --cor-texto:        #3a3530;   /* quase-preto, mais suave que #000 */
-    --cor-texto-leve:   #7a6e65;   /* cinza-acastanhado para textos secundários */
-    --cor-borda:        #e8ddd4;   /* bege para bordas discretas */
+    --cor-fundo: #fdf8f2;
+    /* bege muito claro, como papel velho */
+    --cor-fundo-alt: #fff9f0;
+    /* variação levemente mais clara */
+    --cor-primaria: #5c7a6e;
+    /* verde-cinza tranquilo */
+    --cor-primaria-esc: #3d5c52;
+    /* versão mais escura do verde */
+    --cor-destaque: #c17f5a;
+    /* terracota suave para detalhes */
+    --cor-cartao-aluno-bg: #fffdf9;
+    /* branco levemente creme para os cartao-alunos */
+    --cor-texto: #3a3530;
+    /* quase-preto, mais suave que #000 */
+    --cor-texto-leve: #7a6e65;
+    /* cinza-acastanhado para textos secundários */
+    --cor-borda: #e8ddd4;
+    /* bege para bordas discretas */
 
     /* Tipografia */
-    --fonte-titulo: 'Playfair Display', Georgia, serif;   /* para h1, h2 etc. */
-    --fonte-corpo:  'Lato', 'Helvetica Neue', sans-serif; /* para parágrafos */
+    --fonte-titulo: 'Playfair Display', Georgia, serif;
+    /* para h1, h2 etc. */
+    --fonte-corpo: 'Lato', 'Helvetica Neue', sans-serif;
+    /* para parágrafos */
 
     /* Espaçamentos e formas */
-    --raio-borda: 12px;  /* arredondamento dos cartao-alunos */
-    --sombra-cartao-aluno: 0 4px 20px rgba(90, 70, 50, 0.08); /* sombra suave */
-    --sombra-hover: 0 8px 30px rgba(90, 70, 50, 0.16); /* sombra ao passar o mouse */
+    --raio-borda: 12px;
+    /* arredondamento dos cartao-alunos */
+    --sombra-cartao-aluno: 0 4px 20px rgba(90, 70, 50, 0.08);
+    /* sombra suave */
+    --sombra-hover: 0 8px 30px rgba(90, 70, 50, 0.16);
+    /* sombra ao passar o mouse */
 }
 
 /* Reset básico: remove margens e paddings padrões do navegador */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* faz largura/altura incluir padding e borda */
+    box-sizing: border-box;
+    /* faz largura/altura incluir padding e borda */
 }
 
 /* Rolagem suave ao clicar na seta "↓" do cabecalho-principal */
@@ -67,7 +84,9 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--fonte-titulo);
     line-height: 1.2;
 }
@@ -80,8 +99,10 @@ h1, h2, h3 {
    Usamos min-height: 100vh para isso (vh = viewport height).
 ───────────────────────────────────────────────*/
 .cabecalho-principal {
-    position: relative;    /* necessário para posicionar o .envelopes-decorativos */
-    min-height: 100vh;     /* 100% da altura da tela */
+    position: relative;
+    /* necessário para posicionar o .envelopes-decorativos */
+    min-height: 100vh;
+    /* 100% da altura da tela */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,32 +110,39 @@ h1, h2, h3 {
     padding: 40px 20px;
 
     /* Gradiente diagonal como fundo — mistura entre dois tons cálidos */
-    background: linear-gradient(
-        145deg,
-        #e8f0ec 0%,      /* verde muito pálido */
-        var(--cor-fundo) 50%,
-        #f5ede4 100%     /* salmão muito pálido */
-    );
+    background: linear-gradient(145deg,
+            #e8f0ec 0%,
+            /* verde muito pálido */
+            var(--cor-fundo) 50%,
+            #f5ede4 100%
+            /* salmão muito pálido */
+        );
 
-    overflow: hidden; /* impede que os envelopes decorativos ultrapassem a seção */
+    overflow: hidden;
+    /* impede que os envelopes decorativos ultrapassem a seção */
 }
 
 /* Envelopes decorativos de fundo — puro CSS, só visual */
 .envelopes-decorativos {
-    position: absolute; /* "flutua" sobre o fundo */
-    inset: 0;           /* ocupa toda a área do .cabecalho-principal */
-    pointer-events: none; /* cliques passam através dele, não interferem */
+    position: absolute;
+    /* "flutua" sobre o fundo */
+    inset: 0;
+    /* ocupa toda a área do .cabecalho-principal */
+    pointer-events: none;
+    /* cliques passam através dele, não interferem */
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 180px;
-    opacity: 0.04;       /* quase invisível, só uma textura */
+    opacity: 0.04;
+    /* quase invisível, só uma textura */
     user-select: none;
 }
 
 /* Conteúdo central */
 .conteudo-cabecalho {
-    max-width: 680px; /* limita a largura para melhor leitura */
+    max-width: 680px;
+    /* limita a largura para melhor leitura */
     /* Animação de entrada — aparece suavemente ao carregar a página */
     animation: surgir 1s ease-out forwards;
 }
@@ -122,8 +150,10 @@ h1, h2, h3 {
 @keyframes surgir {
     from {
         opacity: 0;
-        transform: translateY(24px); /* começa um pouco abaixo */
+        transform: translateY(24px);
+        /* começa um pouco abaixo */
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -132,7 +162,8 @@ h1, h2, h3 {
 
 .texto-pequeno-topo {
     font-size: 0.85rem;
-    letter-spacing: 0.15em; /* espaçamento entre letras — efeito elegante */
+    letter-spacing: 0.15em;
+    /* espaçamento entre letras — efeito elegante */
     text-transform: uppercase;
     color: var(--cor-primaria);
     margin-bottom: 16px;
@@ -140,7 +171,8 @@ h1, h2, h3 {
 }
 
 .titulo-principal {
-    font-size: clamp(2.2rem, 6vw, 3.8rem); /* tamanho responsivo automático! */
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    /* tamanho responsivo automático! */
     color: var(--cor-texto);
     margin-bottom: 24px;
 }
@@ -168,9 +200,11 @@ h1, h2, h3 {
     border: 2px solid var(--cor-primaria);
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* torna o elemento circular */
+    border-radius: 50%;
+    /* torna o elemento circular */
     line-height: 46px;
-    transition: all 0.3s ease; /* animação suave no hover */
+    transition: all 0.3s ease;
+    /* animação suave no hover */
 
     /* Animação de vai-e-vem para chamar atenção */
     animation: pular 2s ease-in-out infinite;
@@ -182,8 +216,15 @@ h1, h2, h3 {
 }
 
 @keyframes pular {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-8px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 
@@ -223,8 +264,10 @@ h1, h2, h3 {
 ───────────────────────────────────────────────*/
 .secao-das-cartas {
     padding: 80px 20px 100px;
-    max-width: 1200px;  /* largura máxima para telas grandes */
-    margin: 0 auto;     /* centraliza o bloco horizontalmente */
+    max-width: 1200px;
+    /* largura máxima para telas grandes */
+    margin: 0 auto;
+    /* centraliza o bloco horizontalmente */
 }
 
 .topo-das-cartas {
@@ -240,7 +283,8 @@ h1, h2, h3 {
 
 /* Detalhe decorativo abaixo do título do secao-das-cartas */
 .titulo-das-cartas::after {
-    content: '';      /* cria um pseudo-elemento sem texto */
+    content: '';
+    /* cria um pseudo-elemento sem texto */
     display: block;
     width: 60px;
     height: 3px;
@@ -294,7 +338,8 @@ h1, h2, h3 {
 .grade-de-cartas {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 28px; /* espaçamento entre os cartao-alunos */
+    gap: 28px;
+    /* espaçamento entre os cartao-alunos */
 }
 
 
@@ -310,7 +355,8 @@ h1, h2, h3 {
     border: 1px solid var(--cor-borda);
     box-shadow: var(--sombra-cartao-aluno);
     padding: 32px 28px;
-    cursor: pointer; /* o cursor vira "mãozinha" — sinaliza que é clicável */
+    cursor: pointer;
+    /* o cursor vira "mãozinha" — sinaliza que é clicável */
     position: relative;
     overflow: hidden;
 
@@ -352,7 +398,15 @@ h1, h2, h3 {
     font-family: var(--fonte-titulo);
     font-size: 1.2rem;
     color: var(--cor-primaria-esc);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+}
+
+.frase-do-cartao {
+    font-size: 0.85rem;
+    color: var(--cor-destaque);
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 /* Trecho da carta — limitado a 3 linhas com "..." no final */
@@ -384,6 +438,7 @@ h1, h2, h3 {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -400,14 +455,18 @@ h1, h2, h3 {
 
 /* Fundo escurecido atrás do modal */
 .fundo-escuro-janela {
-    position: fixed;    /* fica fixo mesmo ao rolar a página */
-    inset: 0;           /* ocupa a tela toda: top/right/bottom/left = 0 */
-    background-color: rgba(58, 53, 48, 0.6); /* preto transparente */
+    position: fixed;
+    /* fica fixo mesmo ao rolar a página */
+    inset: 0;
+    /* ocupa a tela toda: top/right/bottom/left = 0 */
+    background-color: rgba(58, 53, 48, 0.6);
+    /* preto transparente */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    z-index: 100;       /* fica na frente de tudo */
+    z-index: 100;
+    /* fica na frente de tudo */
     animation: fadeIn 0.25s ease;
     /* O backdrop-filter desfoca o fundo — efeito moderno */
     backdrop-filter: blur(4px);
@@ -420,11 +479,13 @@ h1, h2, h3 {
     padding: 48px 40px;
     max-width: 600px;
     width: 100%;
-    max-height: 85vh;   /* altura máxima de 85% da tela */
-    overflow-y: auto;   /* adiciona scroll se o texto for muito longo */
+    max-height: 85vh;
+    /* altura máxima de 85% da tela */
+    overflow-y: auto;
+    /* adiciona scroll se o texto for muito longo */
     position: relative;
     animation: surgirModal 0.3s ease;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 .janela-da-carta::before {
@@ -450,7 +511,7 @@ h1, h2, h3 {
     line-height: 1;
     padding: 4px 8px;
     border-radius: 4px;
-    transition: color 0.2s, background 0.2s;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .botao-fechar-janela:hover {
@@ -489,8 +550,10 @@ h1, h2, h3 {
 .texto-completo-janela {
     font-size: 1rem;
     color: var(--cor-texto);
-    line-height: 1.85;    /* bastante espaçado para facilitar a leitura */
-    white-space: pre-line; /* respeita quebras de linha (\n) do texto */
+    line-height: 1.85;
+    /* bastante espaçado para facilitar a leitura */
+    white-space: pre-line;
+    /* respeita quebras de linha (\n) do texto */
     margin-bottom: 24px;
 }
 
@@ -502,7 +565,7 @@ h1, h2, h3 {
     border: 8px solid #fff;
     border-radius: 4px;
     margin: 10px auto 32px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
     transform: rotate(-2deg);
     transition: transform 0.3s ease;
 }
@@ -523,8 +586,13 @@ h1, h2, h3 {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes surgirModal {
@@ -532,6 +600,7 @@ h1, h2, h3 {
         opacity: 0;
         transform: scale(0.94) translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -581,7 +650,8 @@ h1, h2, h3 {
     height: auto;
     display: block;
     margin-bottom: 16px;
-    break-inside: avoid; /* Evita que a imagem seja "cortada" entre colunas */
+    break-inside: avoid;
+    /* Evita que a imagem seja "cortada" entre colunas */
     border-radius: var(--raio-borda);
     box-shadow: var(--sombra-cartao-aluno);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -607,7 +677,8 @@ h1, h2, h3 {
 }
 
 .coracao {
-    color: #e07070; /* vermelho rosado para o coração ♥ */
+    color: #e07070;
+    /* vermelho rosado para o coração ♥ */
 }
 
 .ano-rodape-pagina {
@@ -647,7 +718,7 @@ h1, h2, h3 {
     max-height: 90vh;
     object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .botao-fechar-galeria {
