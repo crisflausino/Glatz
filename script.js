@@ -26,6 +26,7 @@ const modalOverlay = document.getElementById('fundo-escuro-janela');
 const modalNome = document.getElementById('modal-nome');
 const modalTexto = document.getElementById('modal-texto');
 const modalSala = document.getElementById('modal-sala');
+const modalImagem = document.getElementById('modal-imagem');
 const btnFechar = document.getElementById('btn-fechar-modal');
 
 // Botões de filtro
@@ -59,7 +60,7 @@ function criarCard(carta, indice) {
     `;
 
     cartao.addEventListener('click', function () {
-        abrirModal(carta);
+        abrirModal(carta, indice);
     });
 
     return cartao;
@@ -98,11 +99,17 @@ function renderizarCartas(salaFiltro = 'todas') {
    PARTE 5: FUNÇÕES DO MODAL
 -------------------------------------------------- */
 
-function abrirModal(carta) {
+function abrirModal(carta, indice) {
     // Preenche o modal com os dados da carta
     modalNome.textContent = carta.nomeDoAluno;
     modalTexto.textContent = carta.textoDaCarta;
     modalSala.textContent = `Turma: ${carta.sala}`;
+
+    // Adiciona uma foto com base no índice
+    const numeroFoto = (indice % 10) + 1;
+    modalImagem.src = `fotos-fodaskkk/foto${numeroFoto}.jpg`;
+
+    modalImagem.classList.remove('oculto');
 
     // Mostra o modal
     modalOverlay.classList.remove('oculto');
@@ -149,3 +156,45 @@ if (salaAtual === 'destaques') {
 }
 
 console.log(`✅ Site carregado na página: ${salaAtual}`);
+
+/* --------------------------------------------------
+   PARTE 8: MODAL DA GALERIA (LIGHTBOX)
+-------------------------------------------------- */
+const galeriaImagens = document.querySelectorAll('.galeria-grid img');
+const modalGaleria = document.getElementById('modal-galeria');
+const imagemExpandida = document.getElementById('imagem-expandida');
+const btnFecharGaleria = document.getElementById('btn-fechar-galeria');
+
+// Adiciona evento de clique em cada imagem da galeria
+galeriaImagens.forEach(function (imagem) {
+    imagem.addEventListener('click', function () {
+        imagemExpandida.src = this.src;
+        modalGaleria.classList.remove('oculto');
+        document.body.style.overflow = 'hidden'; // Evita scroll do fundo
+    });
+});
+
+// Fecha a galeria
+function fecharGaleria() {
+    modalGaleria.classList.add('oculto');
+    document.body.style.overflow = '';
+}
+
+if(btnFecharGaleria) {
+    btnFecharGaleria.addEventListener('click', fecharGaleria);
+}
+
+if(modalGaleria) {
+    modalGaleria.addEventListener('click', function (evento) {
+        // Fecha se clicar fora da imagem
+        if (evento.target === modalGaleria) {
+            fecharGaleria();
+        }
+    });
+}
+
+document.addEventListener('keydown', function (evento) {
+    if (evento.key === 'Escape' && modalGaleria && !modalGaleria.classList.contains('oculto')) {
+        fecharGaleria();
+    }
+});
