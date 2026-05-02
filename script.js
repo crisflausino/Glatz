@@ -23,10 +23,10 @@ const containerCartas = document.getElementById('container-cartas');
 
 // Os elementos do Modal
 const modalOverlay = document.getElementById('fundo-escuro-janela');
-const modalNome    = document.getElementById('modal-nome');
-const modalTexto   = document.getElementById('modal-texto');
-const modalSala    = document.getElementById('modal-sala');
-const btnFechar    = document.getElementById('btn-fechar-modal');
+const modalNome = document.getElementById('modal-nome');
+const modalTexto = document.getElementById('modal-texto');
+const modalSala = document.getElementById('modal-sala');
+const btnFechar = document.getElementById('btn-fechar-modal');
 
 // Botões de filtro
 const botoesFiltro = document.querySelectorAll('.botao-sala');
@@ -34,7 +34,7 @@ const botoesFiltro = document.querySelectorAll('.botao-sala');
 /* --------------------------------------------------
    PARTE 2: LISTA DE ÍCONES DECORATIVOS
 -------------------------------------------------- */
-const icones = ['🌿', '☀️', '🌸', '✨', '🌱', '💛', '🌼', '🍃'];
+const icones = ["🔥", "🚀", "💻", "⚡", "🎯", "👾", "🧠", "🌌", "💡", "🕶️"];
 
 
 /* --------------------------------------------------
@@ -78,10 +78,10 @@ function renderizarCartas(salaFiltro = 'todas') {
 
     // Filtramos o array de cartas
     let cartasFiltradas = cartas;
-    
+
     if (salaFiltro !== 'todas') {
         // filter() cria um novo array apenas com as cartas onde a sala bate com o filtro
-        cartasFiltradas = cartas.filter(function(carta) {
+        cartasFiltradas = cartas.filter(function (carta) {
             return carta.sala === salaFiltro;
         });
     }
@@ -100,9 +100,9 @@ function renderizarCartas(salaFiltro = 'todas') {
 
 function abrirModal(carta) {
     // Preenche o modal com os dados da carta
-    modalNome.textContent  = carta.nomeDoAluno;
+    modalNome.textContent = carta.nomeDoAluno;
     modalTexto.textContent = carta.textoDaCarta;
-    modalSala.textContent  = `Turma: ${carta.sala}`;
+    modalSala.textContent = `Turma: ${carta.sala}`;
 
     // Mostra o modal
     modalOverlay.classList.remove('oculto');
