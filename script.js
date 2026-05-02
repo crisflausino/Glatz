@@ -39,15 +39,15 @@ const botoesFiltro = document.querySelectorAll('.botao-sala');
 const icones = ["🔥", "🚀", "💻", "⚡", "🎯", "👾", "🧠", "🌌", "💡", "🕶️"];
 
 const frasesZoeiras = [
-    "deu liberdade demais… olha o resultado",
-    "não vem se fazer de inocente agora não",
-    "você plantou… agora aguenta",
+    "você deu liberdade demais… olha o resultado 👀",
+    "não vem se fazer de inocente agora não 👀",
+    "você plantou… agora aguenta 👀",
     "isso aqui é consequência direta das suas ideias",
-    "isso aqui tá suspeito… e você tá envolvido",
-    "você mexeu onde não devia",
+    "isso aqui tá suspeito… e você tá envolvido 👀",
+    "você mexeu onde não devia 👀",
     "a gente era normal antes de você",
-    "olha o que você fez com a gente… lá ele",
-    "não adianta negar… você sabe o que fez"
+    "olha o que você fez com a gente… lá ele 👀",
+    "não adianta negar… você sabe o que fez 👀"
 ];
 
 let frasesDisponiveis = [...frasesZoeiras];
