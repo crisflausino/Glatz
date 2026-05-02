@@ -41,7 +41,7 @@ const icones = ["🔥", "🚀", "💻", "⚡", "🎯", "👾", "🧠", "🌌", "
 const frasesZoeiras = [
     "você deu liberdade demais… olha o resultado 👀",
     "não vem se fazer de inocente agora não 👀",
-    "você plantou… agora aguenta 👀",
+    "você plantou… agora aguenta",
     "isso aqui é consequência direta das suas ideias",
     "isso aqui tá suspeito… e você tá envolvido 👀",
     "você mexeu onde não devia 👀",
