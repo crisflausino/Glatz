@@ -11,14 +11,14 @@
 
 const cartas = [
     {
-        nomeDoAluno: "Ana Beatriz",
-        sala: "3º B",
-        textoDaCarta: `Professor,\n\nEscrever essa carta foi mais difícil do que qualquer redação que o senhor já corrigiu — e o senhor corrigiu muitas ruins minhas, então isso já diz muito.\n\nO senhor é uma daquelas pessoas raras que faz a gente querer entrar em sala de aula. Nos dias em que eu acordava sem vontade de nada, só de saber que teria sua aula já era motivo suficiente.\n\nGuarde forças. A gente está aqui torcendo muito por você.\n\nCom carinho, Ana Beatriz.`
+        nomeDoAluno: "Eloize Eliot",
+        sala: "2º B",
+        textoDaCarta: `Professor,\n\nMuito obrigada pelos momentos marcantes que o senhor deixou na nossa sala ano passado.\n\nPor mais que fôssemos insuportáveis às vezes, o senhor continuou firme até o fim.\n\nNunca vou esquecer que em praticamente toda aula o senhor precisava pegar pelo menos 2 celulares.\n\nE também quando o senhor passou aquele texto enorme sobre a história dos computadores e achou que eu não tinha copiado tudo só porque minha letra é pequena.\n\nMesmo diante de uma sala insuportável, o senhor sempre foi forte.\n\nObrigada por permanecer firme conosco por um ano inteiro.\n\nAtenciosamente,\nEloize Eliot.`
     },
     {
-        nomeDoAluno: "Carlos Eduardo",
-        sala: "3º C",
-        textoDaCarta: `Oi Professor,\n\nSempre fui péssimo em escrever cartas, então vou ser direto: o senhor é o melhor professor que já tive. E não estou falando só da matéria — estou falando de como o senhor trata a gente, de como explica até a gente entender de verdade, de como nunca deixou ninguém pra trás.\n\nO senhor nos ensinou que dificuldade não é sinal de fraqueza. Espero que o senhor lembre disso agora também.\n\nEstamos com você. Carlos Eduardo.`
+        nomeDoAluno: "Sarah Lemes Fagundes",
+        sala: "2º B",
+        textoDaCarta: `Olá professor,\n\nQueria agradecer por ter passado um ano ensinando a gente sobre novas coisas, mesmo na maioria das vezes quando o senhor só desistia e catava o celular de geral ou só ficava ali tendo uma crise existencial pela sala que pegou.\n\nMas de qualquer forma, marcou a vida de cada aluno dentro daquela sala, só tenho a agradecer pela grande paciência e que continue sendo essa ótima pessoa, sendo forte e enfrentando os momentos difíceis, desejo apenas sucesso para o senhor 😊`
     },
     {
         nomeDoAluno: "Fernanda Lima",
