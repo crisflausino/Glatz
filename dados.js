@@ -21,9 +21,9 @@ const cartas = [
         textoDaCarta: `Olá professor,\n\nQueria agradecer por ter passado um ano ensinando a gente sobre novas coisas, mesmo na maioria das vezes quando o senhor só desistia e catava o celular de geral ou só ficava ali tendo uma crise existencial pela sala que pegou.\n\nMas de qualquer forma, marcou a vida de cada aluno dentro daquela sala, só tenho a agradecer pela grande paciência e que continue sendo essa ótima pessoa, sendo forte e enfrentando os momentos difíceis, desejo apenas sucesso para o senhor 😊`
     },
     {
-        nomeDoAluno: "Fernanda Lima",
-        sala: "2º A",
-        textoDaCarta: `Querido Professor,\n\nTem dias que a gente só precisa saber que as pessoas se importam. Por isso escrevi essa carta — para que o senhor saiba, com certeza, que eu me importo. Que toda a turma se importa.\n\nO senhor plantou sementes aqui que vão durar muito tempo. A curiosidade que o senhor despertou em mim não vai embora. Obrigada por isso.\n\nCom muito afeto, Fernanda.`
+        nomeDoAluno: "DG Cabuloso",
+        sala: "3º B",
+        textoDaCarta: `Ooii glatz...\n\nent queria te falar q vc foi disparado o professor mais foda q eu ja tive na minha vida, vc vez coisas por mim q nenhum professor faria eu sei q as vezes eu encho muito o seu saco mais vc sabe q eu gosto muito de vc, e eu quero q vc saiba q tudo q vc precisar pode contar comigo pq pra mim vc é mais q um professor vc é um irmão pra mim\n\nq vc continue sendo esse cara incrível e maravilhoso como professor e amigo.\n\nMelhora minha dupla do TDAH`
     },
     {
         nomeDoAluno: "Gabriel Souza",
