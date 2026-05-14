@@ -136,8 +136,8 @@ function abrirModal(carta, indice) {
     modalTexto.textContent = carta.textoDaCarta;
     modalSala.textContent = `Turma: ${carta.sala}`;
 
-    // Adiciona uma foto com base no índice (agora com 12 fotos)
-    const numeroFoto = (indice % 12) + 1;
+    // Adiciona uma foto específica ou com base no índice
+    const numeroFoto = carta.foto || (indice % 12) + 1;
     
     if (modalImagem) {
         // Se estiver em uma subpágina (sala), o caminho precisa de ../

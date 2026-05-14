@@ -320,6 +320,7 @@ h3 {
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: var(--fonte-corpo);
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
 }
 
 .botao-sala:hover,
