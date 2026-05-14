@@ -48,7 +48,7 @@ const cartas = [
         textoDaCarta: `Professor,\n\nNem sempre a gente fala essas coisas, mas queria que você soubesse que fez diferença de verdade na nossa vida. Muitas vezes a aula começava normal e terminava com alguma história aleatória, alguém levando bronca ou você tentando entender como nossa sala conseguia ser tão bagunceira.\n\nMesmo assim, nunca faltou vontade de ensinar e de ajudar cada um da melhor forma possível, mesmo quando parecia impossível fazer a gente prestar atenção. Obrigado por acreditar no nosso potencial até quando nem a gente acreditava muito.\n\nVocê é aquele tipo de professor que a gente leva pra vida, não só pelas broncas, mas pela pessoa que é.`
     },
     {
-        nomeDoAluno: "Mano do 2A q n lembro o nome",
+        nomeDoAluno: "Igor",
         sala: "2º A",
         textoDaCarta: `Glatz,\n\nA verdade é que nem sempre a gente valoriza as pessoas no momento certo, mas hoje eu queria deixar claro o quanto você foi importante pra nós. Você não ensinou só sobre a materia, ensinou também sobre persistência, dedicação e sobre continuar tentando mesmo quando a vontade era desistir (igual você fazia quando a sala inteira resolvia conversar ao mesmo tempo kkkkk).\n\nMesmo nas broncas e nos momentos mais difíceis, sempre dava pra perceber que tudo vinha de alguém que realmente se importava com seus alunos. Obrigado por ter sido mais do que um professor pra gente.\n\nQue você continue sendo essa pessoa incrível que marcou tanta gente de um jeito tão positivo.`
     }
